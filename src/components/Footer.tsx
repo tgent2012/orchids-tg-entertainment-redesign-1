@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
 
@@ -28,18 +27,14 @@ export default function Footer() {
     <footer className="bg-[#0a0a0a] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-            <div className="lg:col-span-5">
-                <Link href="/" className="inline-block mb-6">
-                  <div className="relative w-24 h-24">
-                    <Image
-                      src="/tg-logo.png"
-                      alt="TG Entertainment Logo"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                </Link>
-              <p className="text-white/60 text-lg leading-relaxed max-w-md mb-8">
+          <div className="lg:col-span-5">
+            <Link href="/" className="inline-block mb-6">
+              <span className="text-4xl font-bold tracking-tight">
+                <span className="text-white">TG</span>
+                <span className="text-[#c8ff00]">.</span>
+              </span>
+            </Link>
+            <p className="text-white/60 text-lg leading-relaxed max-w-md mb-8">
               A future-ready creative agency blending human creative ingenuity 
               with AI augmentation to deliver high-end content, campaigns, and 
               visuals—faster, smarter, and more efficiently.

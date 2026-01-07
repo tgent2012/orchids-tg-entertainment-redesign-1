@@ -6,7 +6,6 @@ import Script from "next/script";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhiteArrowCursor from "@/components/WhiteArrowCursor";
-import Preloader from "@/components/Preloader";
 
 export const metadata: Metadata = {
   title: "TG Entertainment | Human Creativity × AI Efficiency",
@@ -28,7 +27,6 @@ export default function RootLayout({
           data-orchids-project-id="8c69b3a2-5933-485e-a6c8-06b4e3f0e72e"
         />
         <ErrorReporter />
-        <Preloader />
         <Script
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
           strategy="afterInteractive"
