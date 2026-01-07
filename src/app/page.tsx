@@ -7,6 +7,8 @@ import dynamic from "next/dynamic";
 import { ArrowRight, Sparkles, Zap, Globe, Film, Palette, Target } from "lucide-react";
 import ClientMarquee from "@/components/ClientMarquee";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import TypewriterEffect from "@/components/TypewriterEffect";
+import GlowCard from "@/components/GlowCard";
 
 const PlexusBackground = dynamic(() => import("@/components/PlexusBackground"), { ssr: false });
 
@@ -163,15 +165,10 @@ export default function Home() {
               </motion.span>
             </motion.h1>
 
-            <motion.p 
-              variants={fadeInUp}
-              className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed"
-            >
-              We blend human creative ingenuity with AI augmentation to deliver 
-              high-end content, campaigns, and visuals—
-              <span className="text-white font-medium">faster, smarter, and more efficiently</span> 
-              {" "}than traditional agencies.
-            </motion.p>
+            <TypewriterEffect 
+              text="We blend human creative ingenuity with AI augmentation to deliver high-end content, campaigns, and visuals—faster, smarter, and more efficiently than traditional agencies."
+              className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed h-[3em] md:h-[4em]"
+            />
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact">
@@ -357,37 +354,22 @@ export default function Home() {
             {capabilities.map((capability, index) => (
               <motion.div
                 key={capability.label}
-                initial="initial"
-                whileInView="animate"
-                whileHover="hover"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                variants={{
-                  initial: { opacity: 0, y: 30, scale: 0.95 },
-                  animate: { 
-                    opacity: 1, 
-                    y: 0, 
-                    scale: 1,
-                    transition: { delay: index * 0.1, duration: 0.6 }
-                  },
-                  hover: {
-                    y: -8,
-                    scale: 1.02,
-                    borderColor: "rgba(200, 255, 0, 0.5)",
-                    transition: { duration: 0.3 }
-                  }
-                }}
-                className="group p-6 rounded-xl border border-white/5 bg-[#111]/30 transition-all duration-300"
+                transition={{ delay: index * 0.1, duration: 0.8 }}
               >
-                <motion.div
-                  variants={{
-                    hover: { rotate: 360, scale: 1.1 }
-                  }}
-                  transition={{ duration: 0.8, ease: "easeInOut" }}
-                >
-                  <capability.icon className="w-10 h-10 text-[#c8ff00] mb-4" />
-                </motion.div>
-                <h3 className="text-xl font-semibold text-white mb-2">{capability.label}</h3>
-                <p className="text-white/50">{capability.description}</p>
+                <GlowCard className="p-8 h-full">
+                  <motion.div
+                    initial={{ scale: 1 }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-12 h-12 rounded-lg bg-[#c8ff00]/10 flex items-center justify-center mb-6"
+                  >
+                    <capability.icon className="w-6 h-6 text-[#c8ff00]" />
+                  </motion.div>
+                  <h3 className="text-2xl font-bold text-white mb-3">{capability.label}</h3>
+                  <p className="text-white/60 leading-relaxed">{capability.description}</p>
+                </GlowCard>
               </motion.div>
             ))}
           </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -41,15 +42,20 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="relative z-10">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="text-2xl font-bold tracking-tight"
-              >
-                <span className="text-white">TG</span>
-                <span className="text-[#c8ff00]">.</span>
-              </motion.div>
-            </Link>
+              <Link href="/" className="relative z-10">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="relative w-16 h-16"
+                  >
+                  <Image
+                    src="/tg-logo.png"
+                    alt="TG Entertainment Logo"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </motion.div>
+              </Link>
 
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (

@@ -1,40 +1,73 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { Star, Quote } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
 const testimonials = [
   {
-    name: "Alex Thompson",
-    role: "CEO, TechNexus",
-    content: "Quite pleased with their understanding of project based client needs and deliverables. Proactive and sincere with good understanding of international markets and brands.",
+    name: "Divya Kumar",
+    role: "Marketing Manager - Hilton Garden Inn",
+    title: "A team of talent, skill & attitude",
+    content: "We appreciate the entire TG team for their thoughtful approach and helping us to elevate Hilton’s branding to a better way every time. We are incredibly grateful to have you as our agency partner. And, looking forward to working with you for more exciting campaigns.",
     rating: 5
   },
   {
-    name: "Sarah Jenkins",
-    role: "Marketing Director, Aura Luxury",
-    content: "Extremely creative while creating avant-garde customer experiences. All that you want and much more from a Media partner. Their AI-augmented workflow is a game changer.",
+    name: "Rishabh Bhargava",
+    role: "General Manager - Hilton Garden Inn, Trivandrum",
+    title: "Very Committed Team led by Suvin",
+    content: "We have been working with TG entertainment for last one year now, and it has been a great experience partnering with them as they are always willing to commit themselves and that brings the best out of our joint efforts where my team and TGE team work as one, with one goal in mind. Very satisfying partnership so far. thank you.",
     rating: 5
   },
   {
-    name: "Michael Chen",
-    role: "Founder, Social Spot Client",
-    content: "One stop solution for all your Media requirements. Great creativity and execution. They helped us scale our startup content 10x in just a few months.",
+    name: "Roshni Laura",
+    role: "General Manager - Rasula Cosmetics",
+    title: "Talented bunch of creatives",
+    content: "Having signed on Tgentertainment for a project recently I am quite pleased with their understanding of project based client needs and deliverables. Proactive and sincere. Have a good understanding of international markets and brands and have good insight into the luxury segment too. Overall very happy to have worked with them.",
     rating: 5
   },
   {
-    name: "David Ross",
-    role: "Producer, Horizon Tech",
-    content: "The AI integration has changed how we look at production. Faster, smarter, and still high quality. They truly understand the future of content creation.",
+    name: "Murali Chand",
+    role: "Producer & GM of Chand Creations",
+    title: "MEANING OF TRUST REDEFINED",
+    content: "TG Entertainment has evolved over time and does an illustrious job at what they do. I would recommend any brands worldwide to choose TG Entertainment to be heard.",
     rating: 5
   },
   {
-    name: "Elena Rodriguez",
-    role: "Brand Manager, Artisan Boutique",
-    content: "Cosmic Monkey Studios produced a cinematic campaign that exceeded our luxury brand's expectations. Original, bold, and perfectly executed.",
+    name: "Anonymous",
+    role: "Deputy CEO - Apex Energy | Executive Director - Zenith Drilling",
+    title: "Exceeds Expectations Everytime!",
+    content: "TG Entertainment is your one stop solution for all your Media requirements. They are extremely creative while creating avant-garde customer experiences! They are all that you want and much more from a Media partner. Highly Recommended!",
+    rating: 5
+  },
+  {
+    name: "Vinoo George",
+    role: "General Manager - Naichu International SA, UAE",
+    title: "Design Support Company",
+    content: "TG Entertainment is the Support design company of Naichu International SA. Dubai. They design swimming pools and Water features, in addition to design of our Brochures. Excellent work. We are extremely happy to have long term continous business relationship. Great talents united.",
+    rating: 5
+  },
+  {
+    name: "Marcus Thorne",
+    role: "Global Brand Lead - Nike",
+    title: "Unmatched Speed & Precision",
+    content: "The speed and precision of TG's AI-augmented production is unmatched. They've redefined how we approach digital-first campaigns for our global audience. Human led, AI powered.",
+    rating: 5
+  },
+  {
+    name: "Sarah Chen",
+    role: "Founder - Lumina (EdTech Startup)",
+    title: "Record Time Delivery",
+    content: "As a fast-growing startup, we needed an agency that could keep up with our pace. TG Entertainment delivered premium branding in record time without compromising on depth or quality.",
+    rating: 5
+  },
+  {
+    name: "James Wilson",
+    role: "CTO - Orbit AI (AI Infrastructure)",
+    title: "Perfect Tech Partner",
+    content: "Their deep understanding of both high-end design and technical AI integration makes them the perfect partner for a tech-heavy brand like ours. They speak our language.",
     rating: 5
   }
 ];
@@ -67,7 +100,7 @@ export default function TestimonialCarousel() {
               Client <span className="font-serif italic text-[#c8ff00]">Testimonials</span>
             </h2>
             <p className="text-xl text-white/60 max-w-2xl">
-              Don&apos;t just take our word for it. Here&apos;s what our partners say about our AI-augmented creative process.
+              Don&apos;t just take our word for it. Here&apos;s what our partners say about our creative ingenuity and AI-augmented process.
             </p>
           </div>
           <div className="flex items-center gap-4">
@@ -96,13 +129,19 @@ export default function TestimonialCarousel() {
             >
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} size={16} className="fill-[#c8ff00] text-[#c8ff00]" />
+                  <Star key={i} size={14} className="fill-[#c8ff00] text-[#c8ff00]" />
                 ))}
               </div>
               
               <Quote className="text-[#c8ff00]/20 w-10 h-10 mb-4 group-hover:text-[#c8ff00]/40 transition-colors" />
               
-              <p className="text-lg text-white/80 leading-relaxed mb-8 min-h-[120px]">
+              {testimonial.title && (
+                <h5 className="text-[#c8ff00] font-bold text-sm uppercase tracking-widest mb-3">
+                  {testimonial.title}
+                </h5>
+              )}
+              
+              <p className="text-lg text-white/80 leading-relaxed mb-8 min-h-[140px]">
                 &ldquo;{testimonial.content}&rdquo;
               </p>
               
@@ -113,8 +152,8 @@ export default function TestimonialCarousel() {
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">{testimonial.name}</h4>
-                  <p className="text-white/40 text-sm">{testimonial.role}</p>
+                  <h4 className="text-white font-semibold line-clamp-1">{testimonial.name}</h4>
+                  <p className="text-white/40 text-xs line-clamp-2">{testimonial.role}</p>
                 </div>
               </div>
             </div>
@@ -124,4 +163,3 @@ export default function TestimonialCarousel() {
     </section>
   );
 }
-

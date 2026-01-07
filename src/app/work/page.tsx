@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import PortfolioCarousel from "@/components/PortfolioCarousel";
+import CardStack from "@/components/CardStack";
 import { portfolioItems } from "@/lib/portfolio-data";
 import { Sparkles } from "lucide-react";
 
@@ -45,14 +45,14 @@ export default function WorkPage() {
           </motion.p>
         </div>
 
-        {/* Cover Flow Carousel */}
+        {/* Card Stack */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative min-h-[700px]"
+          className="relative min-h-[700px] mb-32"
         >
-          <PortfolioCarousel items={portfolioItems} />
+          <CardStack items={portfolioItems} />
         </motion.div>
       </div>
 

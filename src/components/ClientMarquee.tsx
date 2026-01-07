@@ -3,20 +3,21 @@
 import { motion } from "framer-motion";
 
 const clients = [
-  "Routes 4 Media",
-  "TechNexus",
-  "Aura Luxury",
-  "Velocity Motors",
-  "Horizon Tech",
-  "Zenith Media",
-  "Nexa Global",
-  "Artisan Boutique",
-  "Prime Video",
-  "Red Bull",
-  "Netflix",
-  "Tesla",
-  "Apple",
-  "Samsung"
+  "Adidas",
+  "Nike",
+  "Uber",
+  "Nissan",
+  "Bajaj",
+  "Hilton",
+  "Kempenski",
+  "OSN",
+  "Greene King",
+  "Saint Laurent",
+  "Aston Martin",
+  "Emaar",
+  "Januss Developers",
+  "Amazon",
+  "Bumble"
 ];
 
 export default function ClientMarquee() {
